@@ -1,0 +1,297 @@
+ /* =========================
+       THEME VARIABLES
+       ========================= */
+    :root{
+      --bg:#f6f8ff;
+      --bg2:#ffffff;
+      --text:#0b1220;
+      --muted:#5a667a;
+      --card: rgba(255,255,255,.75);
+      --stroke: rgba(11,18,32,.10);
+
+      --brand:#5b5cff;    /* Indigo */
+      --brand2:#22c55e;   /* Green */
+      --brand3:#06b6d4;   /* Cyan */
+      --brand4:#f97316;   /* Orange accent */
+
+      --shadow: 0 18px 60px rgba(15, 23, 42, .12);
+      --shadow2: 0 10px 30px rgba(15, 23, 42, .10);
+
+      --radius: 18px;
+      --radius2: 26px;
+    }
+
+    [data-theme="dark"]{
+      --bg:#0b1220;
+      --bg2:#0f172a;
+      --text:#e6e9f2;
+      --muted:#b3bdd1;
+      --card: rgba(255,255,255,.04);
+      --stroke: rgba(255,255,255,.10);
+
+      --shadow: 0 20px 70px rgba(0,0,0,.42);
+      --shadow2: 0 12px 34px rgba(0,0,0,.32);
+    }
+
+    /* =========================
+       BASE
+       ========================= */
+    html, body{ height: 100%; }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+      overflow-x: hidden; /* keeps glow clean + allows scroll */
+    }
+    .text-muted-2{ color: var(--muted) !important; }
+
+    /* Background glow (agency style) */
+    .bg-glow{ position: relative; }
+    .bg-glow::before, .bg-glow::after{
+      content:"";
+      position: fixed;
+      width: 760px;
+      height: 760px;
+      border-radius: 999px;
+      filter: blur(80px);
+      opacity: .20;
+      pointer-events:none;
+      z-index: 0;
+    }
+    .bg-glow::before{
+      top: -320px; left: -260px;
+      background: radial-gradient(circle, var(--brand), transparent 62%);
+    }
+    .bg-glow::after{
+      bottom: -360px; right: -300px;
+      background: radial-gradient(circle, var(--brand2), transparent 62%);
+    }
+    .lift{ position: relative; z-index: 1; }
+
+    .section{ padding: 95px 0; }
+    .section-title{ font-weight: 900; letter-spacing: .2px; }
+    .kicker{
+      display:inline-flex; gap:.55rem; align-items:center;
+      padding:.45rem .85rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--brand) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--brand) 28%, var(--stroke));
+      box-shadow: var(--shadow2);
+      font-weight: 700;
+    }
+
+    /* Glass card */
+    .glass{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(12px);
+    }
+
+    /* =========================
+       NAVBAR + UNDERLINE HOVER
+       ========================= */
+    .navbar{
+      background: color-mix(in srgb, var(--bg2) 82%, transparent);
+      border-bottom: 1px solid var(--stroke);
+      backdrop-filter: blur(12px);
+    }
+    .nav-link{
+      position: relative;
+      font-weight: 700;
+      color: color-mix(in srgb, var(--text) 70%, transparent) !important;
+      padding: .6rem .9rem !important;
+    }
+    .nav-link::after{
+      content:"";
+      position:absolute;
+      left: .9rem; right: .9rem;
+      bottom: .35rem;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--brand), var(--brand3));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .22s ease;
+      opacity: .9;
+    }
+    .nav-link:hover{ color: var(--text) !important; }
+    .nav-link:hover::after{ transform: scaleX(1); }
+    .nav-link.active::after{ transform: scaleX(1); }
+
+    /* =========================
+       BUTTONS (modern hover)
+       ========================= */
+    .btn-modern{
+      border-radius: 14px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .btn-modern:hover{ transform: translateY(-2px); }
+    .btn-brand{
+      border: 0;
+      color:#fff;
+      background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--brand3) 55%, var(--brand) 45%));
+      box-shadow: 0 18px 45px color-mix(in srgb, var(--brand) 30%, transparent);
+    }
+    .btn-brand:hover{
+      box-shadow: 0 22px 62px color-mix(in srgb, var(--brand) 42%, transparent);
+      filter: brightness(1.02);
+    }
+    .btn-outline-modern{
+      background: color-mix(in srgb, var(--bg2) 50%, transparent);
+      border: 1px solid var(--stroke);
+      color: var(--text);
+      box-shadow: var(--shadow2);
+    }
+    .btn-outline-modern:hover{
+      border-color: color-mix(in srgb, var(--brand) 35%, var(--stroke));
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+    .hero{
+      min-height: 92vh;
+      display:flex;
+      align-items:center;
+      padding-top: 78px;
+      background:
+        radial-gradient(1200px 520px at 18% 10%, color-mix(in srgb, var(--brand) 22%, transparent), transparent 60%),
+        radial-gradient(900px 450px at 88% 20%, color-mix(in srgb, var(--brand2) 18%, transparent), transparent 55%),
+        linear-gradient(180deg, color-mix(in srgb, var(--bg2) 28%, transparent), transparent);
+    }
+    .hero h1 span.grad{
+      background: linear-gradient(90deg, var(--brand), var(--brand3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* =========================
+       CARDS + MICRO INTERACTIONS
+       ========================= */
+    .card-modern{
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--bg2) 70%, transparent);
+      box-shadow: var(--shadow2);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      overflow: hidden;
+      height: 100%;
+    }
+    .card-modern:hover{
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--brand) 35%, var(--stroke));
+      box-shadow: var(--shadow);
+    }
+    .icon{
+      width: 46px; height: 46px;
+      display:grid; place-items:center;
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--brand) 14%, transparent);
+      border: 1px solid color-mix(in srgb, var(--brand) 28%, var(--stroke));
+      color: color-mix(in srgb, var(--brand) 90%, white 10%);
+      flex: 0 0 auto;
+    }
+
+    /* =========================
+       PORTFOLIO SLIDER
+       ========================= */
+    .carousel-wrap{
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      background: color-mix(in srgb, var(--bg2) 70%, transparent);
+    }
+    .portfolio-slide{
+      min-height: 460px;
+      position: relative;
+      display:flex;
+      align-items: end;
+      padding: 28px;
+      color: #fff;
+      background-size: cover;
+      background-position: center;
+    }
+    .portfolio-slide::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.78)),
+        radial-gradient(620px 320px at 20% 20%, rgba(91,92,255,.35), transparent 60%);
+      z-index:0;
+    }
+    .portfolio-meta{ position: relative; z-index: 1; max-width: 780px; }
+    .tag{
+      display:inline-flex; gap:.45rem; align-items:center;
+      padding: .35rem .7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      font-weight: 750;
+      font-size: .85rem;
+    }
+    .carousel-indicators [data-bs-target]{ width: 10px; height:10px; border-radius: 999px; }
+
+    /* =========================
+       BADGES / CHIPS
+       ========================= */
+    .pill{
+      display:inline-flex; gap:.5rem; align-items:center;
+      padding: .5rem .8rem;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: color-mix(in srgb, var(--bg2) 55%, transparent);
+      box-shadow: var(--shadow2);
+      font-weight: 750;
+    }
+
+    /* =========================
+       PRICING highlight
+       ========================= */
+    .price-featured{
+      border: 1px solid color-mix(in srgb, var(--brand) 35%, var(--stroke)) !important;
+      box-shadow: 0 24px 80px color-mix(in srgb, var(--brand) 18%, transparent) !important;
+      position: relative;
+    }
+    .ribbon{
+      position:absolute;
+      top: 14px; right: 14px;
+      padding:.35rem .6rem;
+      font-size:.8rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand4), color-mix(in srgb, var(--brand4) 55%, var(--brand2) 45%));
+      color:#fff;
+      font-weight: 900;
+    }
+
+    /* =========================
+       FORMS
+       ========================= */
+    .form-control, .form-select{
+      background: color-mix(in srgb, var(--bg2) 55%, transparent);
+      border: 1px solid var(--stroke);
+      color: var(--text);
+      border-radius: 14px;
+      padding: .85rem .95rem;
+    }
+    .form-control::placeholder{ color: color-mix(in srgb, var(--muted) 72%, transparent); }
+    .form-control:focus, .form-select:focus{
+      border-color: color-mix(in srgb, var(--brand) 55%, var(--stroke));
+      box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--brand) 18%, transparent);
+      background: color-mix(in srgb, var(--bg2) 70%, transparent);
+      color: var(--text);
+    }
+
+    footer{
+      border-top: 1px solid var(--stroke);
+      background: color-mix(in srgb, var(--bg2) 55%, transparent);
+    }
