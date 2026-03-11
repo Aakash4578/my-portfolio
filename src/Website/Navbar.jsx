@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar({ toggleTheme, currentTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -23,7 +24,24 @@ function Navbar({ toggleTheme, currentTheme }) {
 
   const handleHomeClick = () => {
     setIsOpen(false);
-    scrollToTop();
+    navigate("/");
+
+    setTimeout(() => {
+      scrollToTop();
+    }, 100);
+  };
+
+  const scrollToSection = (sectionId) => {
+    setIsOpen(false);
+
+    if (location.pathname === "/") {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      navigate(`/?section=${sectionId}`);
+    }
   };
 
   const isHomePage = location.pathname === "/";
@@ -68,34 +86,34 @@ function Navbar({ toggleTheme, currentTheme }) {
             {isHomePage && (
               <>
                 <li className="nav-item">
-                  <a className="nav-link" href="#services" onClick={handleLinkClick}>
+                  <button
+                    type="button"
+                    className="nav-link btn btn-link p-0"
+                    onClick={() => scrollToSection("services")}
+                  >
                     Services
-                  </a>
+                  </button>
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link" href="#process" onClick={handleLinkClick}>
+                  <button
+                    type="button"
+                    className="nav-link btn btn-link p-0"
+                    onClick={() => scrollToSection("process")}
+                  >
                     Process
-                  </a>
+                  </button>
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link" href="#portfolio" onClick={handleLinkClick}>
+                  <button
+                    type="button"
+                    className="nav-link btn btn-link p-0"
+                    onClick={() => scrollToSection("portfolio")}
+                  >
                     Portfolio
-                  </a>
+                  </button>
                 </li>
-
-                {/* <li className="nav-item">
-                  <a className="nav-link" href="#pricing" onClick={handleLinkClick}>
-                    Pricing
-                  </a>
-                </li>
-
-                <li className="nav-item">
-                  <a className="nav-link" href="#faq" onClick={handleLinkClick}>
-                    FAQ
-                  </a>
-                </li> */}
               </>
             )}
           </ul>
