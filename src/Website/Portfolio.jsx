@@ -10,17 +10,17 @@ const img = (path) => `${import.meta.env.BASE_URL}${path}`;
       title: "Shopese – Airline Booking System Website",
       category: "Full Stack Development",
       images: [
-        "assets/Image/portfolio/f1.png",
-        "assets/Image/portfolio/f2.png",
-        "assets/Image/portfolio/f3.png",
-        "assets/Image/portfolio/f4.png",
-        "assets/Image/portfolio/f5.png",
-        "assets/Image/portfolio/f6.png",
-        "assets/Image/portfolio/f7.png",
-        "assets/Image/portfolio/f8.png",
-        "assets/Image/portfolio/f9.png",
-        "assets/Image/portfolio/f10.png",
-        "assets/Image/portfolio/f11.png",
+        img("assets/Image/portfolio/f1.png"),
+        img("assets/Image/portfolio/f2.png"),
+        img("assets/Image/portfolio/f3.png"),
+        img("assets/Image/portfolio/f4.png"),
+        img("assets/Image/portfolio/f5.png"),
+        img("assets/Image/portfolio/f6.png"),
+        img("assets/Image/portfolio/f7.png"),
+        img("assets/Image/portfolio/f8.png"),
+        img("assets/Image/portfolio/f9.png"),
+        img("assets/Image/portfolio/f10.png"),
+        img("assets/Image/portfolio/f11.png"),
       ],
       shortDesc:
         "Shopese is a complete airline ticket booking system designed for a smooth user experience.",
@@ -57,11 +57,11 @@ const img = (path) => `${import.meta.env.BASE_URL}${path}`;
       title: "Photography Portfolio Website – Static Responsive Design",
       category: "Frontend / UI UX Design",
       images: [
-        "assets/Image/portfolio/P1.png",
-        "assets/Image/portfolio/P2.png",
-        "assets/Image/portfolio/P3.png",
-        "assets/Image/portfolio/P4.png",
-        "assets/Image/portfolio/P6.png",
+        img("assets/Image/portfolio/P1.png"),
+        img("assets/Image/portfolio/P2.png"),
+        img("assets/Image/portfolio/P3.png"),
+        img("assets/Image/portfolio/P4.png"),
+        img("assets/Image/portfolio/P6.png"),
 
       ],
       shortDesc:
@@ -84,17 +84,17 @@ const img = (path) => `${import.meta.env.BASE_URL}${path}`;
       title: "Dynamic Quran Learning Website with Admin Panel – Al-Haseebi Academy",
       category: "UI / Conversion Design + Full Stack",
       images: [
-        "assets/Image/portfolio/q1.png",
-        "assets/Image/portfolio/q2.png",
-        "assets/Image/portfolio/q3.png",
-        "assets/Image/portfolio/q4.png",
-        "assets/Image/portfolio/q5.png",
-        "assets/Image/portfolio/q7.png",
-        "assets/Image/portfolio/q8.png",
-        "assets/Image/portfolio/q9.png",
-        "assets/Image/portfolio/q10.png",
-        "assets/Image/portfolio/q11.png",
-        "assets/Image/portfolio/q12.png",
+        img("assets/Image/portfolio/q1.png"),
+        img("assets/Image/portfolio/q2.png"),
+        img("assets/Image/portfolio/q3.png"),
+        img("assets/Image/portfolio/q4.png"),
+        img("assets/Image/portfolio/q5.png"),
+        img("assets/Image/portfolio/q7.png"),
+        img("assets/Image/portfolio/q8.png"),
+        img("assets/Image/portfolio/q9.png"),
+        img("assets/Image/portfolio/q10.png"),
+        img("assets/Image/portfolio/q11.png"),
+        img("assets/Image/portfolio/q12.png"),
       ],
       shortDesc:
         "Developed a dynamic Quran learning platform with a powerful admin panel.",
@@ -127,12 +127,12 @@ const img = (path) => `${import.meta.env.BASE_URL}${path}`;
       title: "Personal Portfolio Website for Web Developer",
       category: "Design + Frontend Development",
       images: [
-        "assets/Image/portfolio/ma1.png",
-        "assets/Image/portfolio/ma2.png",
-        "assets/Image/portfolio/ma3.png",
-        "assets/Image/portfolio/ma4.png",
-        "assets/Image/portfolio/ma5.png",
-        "assets/Image/portfolio/ma6.png",
+        img("assets/Image/portfolio/ma1.png"),
+        img("assets/Image/portfolio/ma2.png"),
+        img("assets/Image/portfolio/ma3.png"),
+        img("assets/Image/portfolio/ma4.png"),
+        img("assets/Image/portfolio/ma5.png"),
+        img("assets/Image/portfolio/ma6.png"),
       ],
       shortDesc:
         "Designed and developed a modern personal portfolio website.",
@@ -154,10 +154,10 @@ const img = (path) => `${import.meta.env.BASE_URL}${path}`;
       title: "Responsive Business Website Design (HTML, CSS, Bootstrap)",
       category: "Design + Frontend Development",
       images: [
-        "assets/Image/portfolio/b1.png",
-        "assets/Image/portfolio/b2.png",
-        "assets/Image/portfolio/b3.png",
-        "assets/Image/portfolio/b4.png",
+        img("assets/Image/portfolio/b1.png"),
+        img("assets/Image/portfolio/b2.png"),
+        img("assets/Image/portfolio/b3.png"),
+        img("assets/Image/portfolio/b4.png"),
         
 
       ],
@@ -233,11 +233,11 @@ const img = (path) => `${import.meta.env.BASE_URL}${path}`;
   title: "Portfolio Website for a Graphic Designer",
   category: "UI / UX Design + Frontend Development",
   images: [
-    "assets/Image/portfolio/m1.png",
-    "assets/Image/portfolio/m2.png",
-    "assets/Image/portfolio/m3.png",
-    "assets/Image/portfolio/m4.png",
-    "assets/Image/portfolio/m5.png",
+    img("assets/Image/portfolio/m1.png"),
+    img("assets/Image/portfolio/m2.png"),
+    img("assets/Image/portfolio/m3.png"),
+    img("assets/Image/portfolio/m4.png"),
+    img("assets/Image/portfolio/m5.png"),
   ],
   shortDesc:
     "Designed and developed a modern portfolio website for a graphic designer to professionally showcase creative work and attract clients.",
@@ -493,12 +493,12 @@ const img = (path) => `${import.meta.env.BASE_URL}${path}`;
                     </div>
 
                     <div className="d-flex flex-wrap gap-2">
-                      <a
+                      {/* <a
                         href="#contact"
                         className="btn btn-outline-modern btn-modern"
                       >
                         Start Similar Project
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>

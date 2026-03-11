@@ -1,6 +1,20 @@
-import React from 'react';
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function HeroSection() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId) => {
+    if (location.pathname === "/") {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      navigate(`/?section=${sectionId}`);
+    }
+  };
   return (
     <header id="home" className="hero">
       <div className="container lift">
@@ -41,19 +55,25 @@ function HeroSection() {
               <span className="pill"><i className="bi bi-shield-check"></i> Secure</span>
             </div>
 
-            <div 
-              className="d-flex flex-wrap gap-3" 
-              data-aos="fade-up" 
-              data-aos-delay="210"
-            >
-              <a href="#portfolio" className="btn btn-brand btn-modern btn-lg px-4">
-                View Portfolio <i className="bi bi-arrow-right ms-1"></i>
-              </a>
+        <div className="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="210">
 
-              <a href="#services" className="btn btn-outline-modern btn-modern btn-lg px-4">
-                Explore Services
-              </a>
-            </div>
+  <button
+    type="button"
+    className="btn btn-brand btn-modern btn-lg px-4"
+    onClick={() => scrollToSection("portfolio")}
+  >
+    View Portfolio <i className="bi bi-arrow-right ms-1"></i>
+  </button>
+
+  <button
+    type="button"
+    className="btn btn-outline-modern btn-modern btn-lg px-4"
+    onClick={() => scrollToSection("services")}
+  >
+    Explore Services
+  </button>
+
+</div>
 
           </div>
 
